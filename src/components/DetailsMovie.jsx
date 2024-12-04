@@ -1,8 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react'
 
-export default function MovieCard({sendCard}) {
-  const {image,title,genre,duration,releaseYear,rating,} = sendCard || {}
+export default function DetailsMovie({sendAllMovie}) {
+  const {image,title,genre,duration,releaseYear,rating,summary} = sendAllMovie || {}
   return (
     <div className="my-4">
       <div className="border-2 border-gray-500 card card-compact  w-96 shadow-xl">
@@ -24,8 +23,12 @@ export default function MovieCard({sendCard}) {
             {rating}
             </div>
           </div>
-          <div className="card-actions justify-end">
-          <Link to={`/movieDetails`} class="btn btn-outline btn-secondary">See Details</Link>
+          <p>
+            {summary}
+          </p>
+          <div className="card-actions flex">
+          <button class="btn btn-outline btn-secondary">Add to Favorite</button>
+          <button class="btn btn-outline btn-secondary">Delete Movie</button>
           </div>
         </div>
       </div>

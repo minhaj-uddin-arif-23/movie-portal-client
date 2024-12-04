@@ -14,6 +14,7 @@ import Login from "../components/Login";
 import Register from "../components/Register";
 import AuthLayout from "../AuthLayout/AuthLayout";
 import Private_Router from "./Private_Router";
+import MovieDetails from "../components/MovieDetails";
 
 export const routers = createBrowserRouter([
   {
@@ -27,6 +28,11 @@ export const routers = createBrowserRouter([
       {
         path: "allMovie",
         element: <AllMovie />,
+        loader:()=> fetch(`http://localhost:5500/addmovie`)
+      },
+      {
+        path: "movieDetails",
+        element: <MovieDetails />,
         loader:()=> fetch(`http://localhost:5500/addmovie`)
       },
       {
