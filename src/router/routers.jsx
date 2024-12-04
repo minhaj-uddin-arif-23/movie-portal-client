@@ -15,6 +15,7 @@ import Register from "../components/Register";
 import AuthLayout from "../AuthLayout/AuthLayout";
 import Private_Router from "./Private_Router";
 import MovieDetails from "../components/MovieDetails";
+import Update from "../Update/Update";
 
 export const routers = createBrowserRouter([
   {
@@ -35,6 +36,12 @@ export const routers = createBrowserRouter([
         element: <MovieDetails />,
         loader:()=> fetch(`http://localhost:5500/addmovie`)
       },
+      {
+        path: "updateMovie/:id",
+        element: <Update />,
+        loader:({params})=> fetch(`http://localhost:5500/addmovie`)
+      },
+
       {
         path: "tv",
         element: <TvShow />,
