@@ -83,14 +83,14 @@ export default function Navbar() {
                     ) : (
                       <div className="flex gap-3">
                         <Link
-                          to={`/auth/login`}
+                          to={`/auth/signin`}
                           className="btn bg-green-300 font-semibold text-md text-black"
                         >
                           Sign in
                         </Link>
                         <div>
                           <Link
-                            to={`/auth/register`}
+                            to={`/auth/signUp`}
                             className="btn bg-green-300 font-semibold text-md text-black"
                           >
                             Register
@@ -170,14 +170,14 @@ export default function Navbar() {
           ) : (
             <div className="flex gap-3">
               <Link
-                to={`/auth/login`}
+                to={`/auth/signin`}
                 className="btn btn-outline font-semibold text-md text-white"
               >
                 Sign in
               </Link>
               <div>
                 <Link
-                  to={`/auth/register`}
+                  to={`/auth/signUp`}
                   className="btn btn-outline font-semibold text-md text-white"
                 >
                   Register

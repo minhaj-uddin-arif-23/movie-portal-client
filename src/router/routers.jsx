@@ -10,6 +10,9 @@ import TvShow from "../components/TvShow";
 import Blog from "../components/Blog";
 import AddMovie from "../components/AddMovie";
 import Myfavourite from "../components/Myfavourite";
+import Login from "../components/Login";
+import Register from "../components/Register";
+import AuthLayout from "../AuthLayout/AuthLayout";
 
 export const routers = createBrowserRouter([
   {
@@ -39,6 +42,22 @@ export const routers = createBrowserRouter([
       {
         path:'fovaurite',
         element:<Myfavourite />
+      }
+    ]
+  },
+  {
+    path:"/auth",
+    element:<AuthLayout />,
+    children:[
+      {
+        path:'/auth/signin',
+        element:<Login />
+
+      },
+      {
+        path:'/auth/signUp',
+        element:<Register />
+
       }
     ]
   }
