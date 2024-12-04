@@ -1,79 +1,183 @@
-import React from "react";
+import React, { useState } from "react";
+import { Rating } from "react-simple-star-rating";
+import Swal from "sweetalert2";
 
 export default function AddMovie() {
+  const [rating, setRating] = useState(0);
+  const [genre, setGenre] = useState("");
+  const [releaseYear, setReleaseYear] = useState("");
+
+  const addMovie = (e) => {
+    e.preventDefault();
+    const image = e.target.image.value.trim();
+    const title = e.target.title.value.trim();
+    const duration = e.target.duration.value;
+    const summary = e.target.summary.value.trim();
+
+    // Validations
+    if (!image || !image.startsWith("http")) {
+      Swal.fire("Error", "Please provide a valid image URL!", "error");
+      return;
+    }
+    if (!title || title.length < 2) {
+      Swal.fire("Error", "Title must have at least 2 characters!", "error");
+      return;
+    }
+    if (!genre) {
+      Swal.fire("Error", "Please select a genre!", "error");
+      return;
+    }
+    if (!duration || duration <= 60) {
+      Swal.fire("Error", "Duration must be greater than 60 minutes!", "error");
+      return;
+    }
+    if (!releaseYear) {
+      Swal.fire("Error", "Please select a release year!", "error");
+      return;
+    }
+    if (rating === 0) {
+      Swal.fire("Error", "Please select a rating!", "error");
+      return;
+    }
+    if (!summary || summary.length < 10) {
+      Swal.fire("Error", "Summary must have at least 10 characters!", "error");
+      return;
+    }
+
+    const movieData = {
+      image,
+      title,
+      genre,
+      duration,
+      releaseYear,
+      rating,
+      summary,
+      email: "user@example.com",
+    };
+
+    console.log("Movie added:", movieData);
+
+    Swal.fire("Success", "Movie added successfully!", "success");
+
+    e.target.reset();
+    setRating(0);
+    setGenre("");
+    setReleaseYear("");
+
+    fetch(`http://localhost:5500/addmovie`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(movieData),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  };
+
   return (
-    <div>
-      <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-        <form className="card-body">
-          <div className="form-control">
-            <label className="label">
-              <span className="label-text">Image</span>
+    <div className="bg-black min-h-screen flex justify-center items-center ">
+      <div className="bg-purple text-black card rounded-lg w-full max-w-md p-6 shadow-lg">
+        <h1 className="text-2xl font-semibold text-center mb-6 text-white">Add Movie</h1>
+        <form onSubmit={addMovie} className="space-y-4  bg-gray-900 w-[600px]">
+          {/* Image URL */}
+     <div className="flex justify-evenly  ">
+     <section className="space-y-5">
+      <div>
+            <label className="block font-medium text-white">
+              Movie Poster URL
             </label>
             <input
               type="text"
-              placeholder="Photo Url"
-              className="input input-bordered"
-              required
+              name="image"
+              placeholder="Enter Image URL"
+              className=" input input-bordered w-full bg-black border-2 border-white backdrop-blur-md text-white"
             />
           </div>
-          <div className="form-control">
-            <label className="label">
-              <span className="label-text">Movie Title</span>
-            </label>
-            <input
-              type="text"
-              placeholder="Title"
-              className="input input-bordered"
-              required
-            />
-            <label className="label"></label>
-          </div>
+
           <div>
-            <div className="dropdown dropdown-top">
-              <div tabIndex={0} role="button" className="btn m-1">
-                Genre
-              </div>
-              <ul
-                tabIndex={0}
-                className="dropdown-content menu bg-base-600 rounded-box z-[1] w-52 p-2 shadow"
-              >
-                <li>
-                  <a>comedy</a>
-                </li>
-                <li>
-                  <a>drama</a>
-                </li>
-                <li>
-                  <a>horror</a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <label for="appointment-time" className="text-black">Duration: </label>
-              <input
-                id="appointment-time"
-                type="time"
-                name="appointment-time"
-                value="13:30"
-                placeholder=""
-                className=" p-2 border-2 border-gray-200 w-80"
-              />
-            </div>
-            <div className="form-control ">
-              <label className="label">
-                <span className="label-text">Summary</span>
-              </label>
-              <textarea
-                className="border-2 border-gray-200 rounded-md p-3"
-                name=""
-                rows={4}
-                cols={16}
-                id=""
-                placeholder="write me some movie description"
-              ></textarea>
-            </div>
+            <label className="block font-medium text-white">Movie Title</label>
+            <input
+              type="text"
+              name="title"
+              placeholder="Enter Movie Title"
+              className=" input input-bordered w-full bg-black border-2 border-white backdrop-blur-md text-white"
+            />
           </div>
-          <button>Add Movie</button>
+
+          {/* Genre */}
+          <div>
+            <label className="block font-medium text-white">Genre</label>
+            <select
+              value={genre}
+              onChange={(e) => setGenre(e.target.value)}
+              className="select select-bordered  w-full bg-black border-2 border-white backdrop-blur-md text-white"
+            >
+              <option value="">Select Genre</option>
+              <option value="comedy">Comedy</option>
+              <option value="drama">Drama</option>
+              <option value="horror">Horror</option>
+            </select>
+          </div>
+
+          {/* Duration */}
+          <div>
+            <label className="block font-medium text-white">
+              Duration (in minutes)
+            </label>
+            <input
+              type="number"
+              name="duration"
+              placeholder="Enter Duration"
+              className="input input-bordered w-full bg-black border-2 border-white backdrop-blur-md text-white"
+              min={61}
+            />
+         
+          </div>
+      </section>
+<section className="space-y-3">
+  
+<div>
+            <label className="block font-medium text-white">Release Year</label>
+            <select
+              value={releaseYear}
+              onChange={(e) => setReleaseYear(e.target.value)}
+              className="select select-bordered w-full input  bg-black border-2 border-white backdrop-blur-md text-white"
+            >
+              <option value="">Select Year</option>
+              <option value="2024">2024</option>
+              <option value="2023">2023</option>
+              <option value="2022">2022</option>
+              <option value="2021">2021</option>
+            </select>
+          </div>
+
+          <div className=" items-center">
+            <label className="block font-medium text-white">Rating</label>
+            <Rating
+              onClick={(rate) => setRating(rate)}
+              ratingValue={rating}
+              size={25}
+              className="mt-4"
+            />
+          </div>
+
+          <div>
+            <label className="block font-medium text-white">Summary</label>
+            <textarea
+              name="summary"
+              rows="4"
+              placeholder="Enter Movie Summary"
+              className="textarea textarea-bordered  w-full bg-black border-2 border-white backdrop-blur-md text-white"
+            ></textarea>
+          </div>
+</section>
+     </div>
+
+          {/* Submit Button */}
+          <button type="submit" className="btn bg-[#ea4c89] w-full">
+            Add Movie
+          </button>
         </form>
       </div>
     </div>

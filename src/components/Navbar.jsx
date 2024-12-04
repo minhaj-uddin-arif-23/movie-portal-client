@@ -171,7 +171,7 @@ export default function Navbar() {
             <div className="flex gap-3">
               <Link
                 to={`/auth/signin`}
-                className="btn btn-outline font-semibold text-md text-white"
+                className="btn  bg-[#ea4c89] font-semibold text-md text-white"
               >
                 Sign in
               </Link>

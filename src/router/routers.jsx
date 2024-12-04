@@ -1,4 +1,4 @@
-// not only public router this can be include also private 
+// not only public router this can be include also private
 
 import { createBrowserRouter } from "react-router-dom";
 import Navbar from "../components/Navbar";
@@ -13,55 +13,55 @@ import Myfavourite from "../components/Myfavourite";
 import Login from "../components/Login";
 import Register from "../components/Register";
 import AuthLayout from "../AuthLayout/AuthLayout";
+import Private_Router from "./Private_Router";
 
 export const routers = createBrowserRouter([
   {
-    path:'/',
-    element:<RootElement />,
-    children:[
+    path: "/",
+    element: <RootElement />,
+    children: [
       {
-        path:'/',
-        element:<Home />
+        path: "/",
+        element: <Home />,
       },
       {
-        path:'allMovie',
-        element:<AllMovie />
+        path: "allMovie",
+        element: <AllMovie />,
       },
       {
-        path:'tv',
-        element:<TvShow />,
+        path: "tv",
+        element: <TvShow />,
       },
       {
-        path:'blog',
-        element:<Blog />
+        path: "blog",
+        element: <Blog />,
       },
       {
-        path:"addMovie",
-        element:<AddMovie />
+        path: "addMovie",
+        element: (
+          // <Private_Router>
+            <AddMovie />
+          // </Private_Router>
+        ),
       },
       {
-        path:'fovaurite',
-        element:<Myfavourite />
-      }
-    ]
+        path: "fovaurite",
+        element: <Myfavourite />,
+      },
+    ],
   },
   {
-    path:"/auth",
-    element:<AuthLayout />,
-    children:[
+    path: "/auth",
+    element: <AuthLayout />,
+    children: [
       {
-        path:'/auth/signin',
-        element:<Login />
-
+        path: "/auth/signin",
+        element: <Login />,
       },
       {
-        path:'/auth/signUp',
-        element:<Register />
-
-      }
-    ]
-  }
-
-  
-])
-
+        path: "/auth/signUp",
+        element: <Register />,
+      },
+    ],
+  },
+]);
