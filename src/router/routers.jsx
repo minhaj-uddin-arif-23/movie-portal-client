@@ -27,6 +27,7 @@ export const routers = createBrowserRouter([
       {
         path: "allMovie",
         element: <AllMovie />,
+        loader:()=> fetch(`http://localhost:5500/addmovie`)
       },
       {
         path: "tv",
@@ -39,9 +40,9 @@ export const routers = createBrowserRouter([
       {
         path: "addMovie",
         element: (
-          // <Private_Router>
+          <Private_Router>
             <AddMovie />
-          // </Private_Router>
+          </Private_Router>
         ),
       },
       {

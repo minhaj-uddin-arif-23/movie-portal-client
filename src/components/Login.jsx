@@ -81,7 +81,7 @@ export default function Login() {
               <title>Eco Adventure Login</title> */}
             {/* </Helmet> */}
             <div>
-            <div className="bg-gradient-to-br from-[#b7649a] to-[#a9a1c8] card border-2 border-gray-400 font-medium w-full max-w-sm shrink-0 shadow-2xl md:ml-[390px]  my-10  text-white">
+            <div className="bg-white/20 card border-2 border-gray-400 font-medium w-full max-w-sm shrink-0 shadow-2xl md:ml-[390px]  my-10  text-white">
               <form onSubmit={handleLogin} className="card-body">
                 <div>
                   <h1 className="font-semibold text-3xl md:ml-28 lg:ml-28 ml-24">
@@ -97,7 +97,7 @@ export default function Login() {
                     name="email"
                     type="email"
                     placeholder="Enter your email"
-                    className="input input-bordered"
+                    className="input input-bordered bg-black border-2 border-white backdrop-blur-md text-white"
                     required
                   />
                 </div>
@@ -109,7 +109,7 @@ export default function Login() {
                     name="password"
                     type={showPassword ? "text" : "password"}
                     placeholder="password"
-                    className="input input-bordered"
+                    className="input input-bordered bg-black border-2 border-white backdrop-blur-md text-white"
                     required
                   />
                 </div>
@@ -120,7 +120,7 @@ export default function Login() {
                   {showPassword ? <FaEyeSlash /> : <FaEye />}
                 </div>
                 <div className="form-control mt-6">
-                  <button className="btn bg-white border-2 border-gray-300 rounded-full text-lg font-semibold">
+                  <button className="btn b  rounded-full text-lg font-semibold bg-[#ea4c89] border-2 border-white backdrop-blur-md text-white">
                     Login
                   </button>
                 </div>
@@ -147,7 +147,7 @@ export default function Login() {
                 <div className="flex">
                   <button
                     onClick={handleGoogleLogin}
-                    className=" btn rounded-full w-14 text-4xl bg-white hover:bg-white hover:text-white ml-24"
+                    className=" btn rounded-full w-14 text-4xl bg-white hover:bg-white hover:text-white ml-32"
                   >
                     <FcGoogle />
                   </button> 

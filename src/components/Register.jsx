@@ -11,7 +11,7 @@ import {
 import { FcGoogle } from "react-icons/fc";
 
 
-// import toast from "react-hot-toast";
+import toast from "react-hot-toast";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 // import { Helmet } from "react-helmet-async";
 import auth from "../fireBase/firebase.config";
@@ -19,7 +19,7 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 
 
 export default function Register() {
-  const { signGooglein, newUser, setUser, UpdateProfile } =
+  const { googleSignIn, createuser, setUser, updateUser } =
     useContext(AuthContext);
   const [errorMsg, setErrorMsg] = useState(""); // show success msg when user is sign in
   const [success, setSuccess] = useState(false); // show error msg when user is sign out and anymistake
@@ -56,13 +56,13 @@ export default function Register() {
       return;
     }
     // create user, email and password
-    newUser(Email, Password, Name)
+    createuser(Email, Password, Name)
       .then((result) => {
         const user = result.user;
         
         setUser(user);
         setSuccess(true);
-        UpdateProfile({ displayName: Name, photoURL: Photo })
+        updateUser({ displayName: Name, photoURL: Photo })
           .then(() => {
             setUser((prevUser) => ({
               ...prevUser,
@@ -91,7 +91,7 @@ export default function Register() {
 
   // const provider2 = new GithubAuthProvider();
   const handleGoogleLogin = () => {
-    signGooglein(auth, provider)
+    googleSignIn(auth, provider)
       .then((result) => {
         const user = result.user;
         setUser(user)
@@ -119,7 +119,7 @@ export default function Register() {
   return (
     <>
       <div className="flex md:flex-row lg:flex-row flex-col ">
-        <div className="lg:w-[600px] h-96 mt-20 lg:ml-20  animate__animated animate__slideInLeft ">
+        <div className="lg:w-[600px] h-96 mt-20  animate__animated animate__slideInLeft ">
             {/* <img src={registerImg} alt="" /> */}
         </div>
         <div>
@@ -127,62 +127,68 @@ export default function Register() {
             {/* <Helmet>
               <title>Eco adventure | Register</title>
             </Helmet> */}
-            <div className="border-2 border-gray-400 card bg-gradient-to-br from-green-50 via-green-50 to-green- font-medium w-full max-w-sm shrink-0 shadow-2xl lg:ml-[170px]  lg:my-10 animate__animated animate__slideInRight mb-6">
-              <form onSubmit={handleRegister} className="card-body">
+            <div className="border-2 border-gray-400 card bg-white/20 font-medium w-full max-w- shrink-0 shadow-2xl   lg:my-10 animate__animated animate__slideInRight mb-6">
+              <form onSubmit={handleRegister} className="card-body ">
                 <div>
-                  <h1 className="font-semibold text-3xl ml-20 md:ml-14 lg:ml-24">Register</h1>
+                  <h1 className="font-semibold text-4xl ml-20 md:ml-14 lg:ml-48">Register</h1>
                 </div>
-                <div className="form-control">
+          <section className="flex gap-7 ">
+          <section>
+              <div className="form-control">
                   <label className="label">
-                    <span className="label-text text-lg">Name</span>
+                    <span className="label-text text-lg text-white">Name</span>
                   </label>
                   <input
                     name="name"
                     type="text"
                     placeholder="username"
-                    className="input input-bordered"
+                    className="input input-bordered bg-black border-2 border-white backdrop-blur-md text-white"
                     required
                   />
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text text-lg">Photo</span>
+                    <span className="label-text text-lg text-white">Photo</span>
                   </label>
                   <input
                     name="photo"
                     type="text"
                     placeholder="Photo url"
-                    className="input input-bordered"
+                    className="input input-bordered bg-black border-2 border-white backdrop-blur-md text-white"
                     required
                   />
                 </div>
+              </section>
+                <section>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text text-lg">Email</span>
+                    <span className="label-text text-lg text-white">Email</span>
                   </label>
                   <input
                     name="email"
                     type="email"
                     placeholder="Enter your email"
-                    className="input input-bordered"
+                    className="input input-bordered bg-black border-2 border-white backdrop-blur-md text-white"
                     required
                   />
                 </div>
                 <div className="form-control relative">
                   <label className="label">
-                    <span className="label-text text-lg">Password</span>
+                    <span className="label-text text-lg text-white">Password</span>
                   </label>
                   <input
                     name="password"
                     type={showPassword ? "text" : "password"}
                     placeholder="password"
-                    className="input input-bordered"
+                    className="input input-bordered bg-black border-2 border-white backdrop-blur-md text-white"
                     required
                   />
                 </div>
+                </section>
+          </section>
                 <div
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute top-[435px] right-12"
+                  className="absolute top-[228px] right-12"
                 >
                   {showPassword ? <FaEyeSlash /> : <FaEye />}
                 </div>
@@ -193,7 +199,7 @@ export default function Register() {
                       name="checked"
                       className="checkbox"
                     />
-                    <span className="label-text">
+                    <span className="label-text text-white">
                       Accept Tearms & condition
                     </span>
                   </label>
@@ -201,7 +207,7 @@ export default function Register() {
 
                 <div className="form-control mt-6">
                   {/* to={`/login`} */}
-                  <button className="btn bg-green-300 border-2 border-gray-300 font-medium text-lg">
+                  <button className="btn bg-[#ea4c89] border-2 border-gray-300 font-medium text-white text-lg hover:bg-black hover:text-[#ea4c89]">
                     Sign up
                   </button>
                 </div>
@@ -217,7 +223,7 @@ export default function Register() {
                   <div>
                     <Link
                       to={`/auth/login`}
-                      className="text-md font-semibold hover:text-green-500"
+                      className="text-md font-semibold btn btn-outline text-white hover:bg-[#ea4c89]"
                     >
                       Sing in
                     </Link>
@@ -228,7 +234,7 @@ export default function Register() {
                 <div className="flex">
                   <button
                     onClick={handleGoogleLogin}
-                    className=" btn rounded-full w-14 text-4xl bg-white hover:bg-white hover:text-white ml-32"
+                    className=" btn rounded-full w-14 text-4xl bg-white hover:bg-white hover:text-white ml-32 lg:ml-64"
                   >
                     <FcGoogle />
                   </button>

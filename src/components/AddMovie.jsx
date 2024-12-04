@@ -117,6 +117,9 @@ export default function AddMovie() {
               <option value="comedy">Comedy</option>
               <option value="drama">Drama</option>
               <option value="horror">Horror</option>
+              <option value="action">Action </option>
+              <option value="romance">Romance </option>
+              <option value="fantasy">Fantasy</option>
             </select>
           </div>
 
@@ -148,7 +151,11 @@ export default function AddMovie() {
               <option value="2024">2024</option>
               <option value="2023">2023</option>
               <option value="2022">2022</option>
-              <option value="2021">2021</option>
+              <option value="2022">2021</option>
+              <option value="2022">2020</option>
+              <option value="2021">2019</option>
+              <option value="2021">2018</option>
+              <option value="2021">2017</option>
             </select>
           </div>
 
