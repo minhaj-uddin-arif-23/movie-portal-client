@@ -7,6 +7,7 @@ export default function AuthLayout() {
     <div className='bg-gradient-to-b from-black to-gray-900 text-white'>
     <header className='w-11/12 mx-auto'>
     <Navbar />
+    <SlidesBanner />
     <Outlet />
     </header>
     </div>

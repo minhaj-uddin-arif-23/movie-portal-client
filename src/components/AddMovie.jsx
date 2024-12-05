@@ -76,7 +76,7 @@ export default function AddMovie() {
   };
 
   return (
-    <div className="bg-black min-h-screen flex justify-center items-center ">
+    <div className=" min-h-screen flex justify-center items-center ">
       <div className="bg-purple text-black card rounded-lg w-full max-w-md p-6 shadow-lg">
         <h1 className="text-2xl font-semibold text-center mb-6 text-white">Add Movie</h1>
         <form onSubmit={addMovie} className="space-y-4  bg-gray-900 w-[600px]">

@@ -5,27 +5,29 @@ export default function MovieCard({sendCard}) {
   const {image,title,genre,duration,releaseYear,rating,} = sendCard || {}
   return (
     <div className="my-4">
-      <div className="border-2 border-gray-500 card card-compact  w-96 shadow-xl">
+      <div className="border-2 border-gray-100 card card-compact   w-72 sm:w-80 md:w-80 shadow-2xl rounded-lg overflow-hidden transform hover:scale-105 transition duration-300 ease-in-out">
         <figure>
           <img
-            src={image} className="object-cover "
+            src={image} className="w-80 h-[280px]  s object-cover transform hover:scale-110 transition-all duration-300 "
             alt="Shoes"
           />
         </figure>
         <div className="card-body">
           <h2 className="card-title">{title}</h2>
-          <p>{genre}</p>
-          <div>
+         <div className="flex">
+         <p>{genre}</p>
+          <p>
             {duration} min
-          </div>
+          </p>
+         </div>
           <div className="flex">
             <p>{releaseYear}</p>
-            <div className="mr-10">
-            {rating}
+            <div className="mr-24">
+              {rating} * 
             </div>
           </div>
-          <div className="card-actions justify-end">
-          <Link to={`/movieDetails`} class="btn btn-outline btn-secondary">See Details</Link>
+          <div className="card-actions mt-3">
+          <Link to={`/movieDetails`} class="btn btn-active btn-secondary">See Details</Link>
           </div>
         </div>
       </div>
