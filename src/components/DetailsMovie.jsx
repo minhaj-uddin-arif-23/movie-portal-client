@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 export default function DetailsMovie({ sendAllMovie ,movies,setMovie}) {
@@ -65,7 +66,7 @@ export default function DetailsMovie({ sendAllMovie ,movies,setMovie}) {
             >
               Delete Movie
             </button>
-            <button className="btn btn-accent">Update Movie</button>
+           <Link to={`/updateMovie/${_id}`} className="btn btn-accent" >  Update Movie</Link>
           </div>
         </div>
       </div>

@@ -9,3 +9,14 @@ html{
 a.active{
   color:deeppink;
 }
+.light-mode{
+  background-color: white;
+  color: black;
+}
+.icon{
+  cursor: pointer;
+}
+.dark-mode{
+  background-color: black;
+  color: white;
+}

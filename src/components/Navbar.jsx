@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
 import { FaUserCircle } from "react-icons/fa";
@@ -7,6 +7,20 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 
 export default function Navbar() {
   const { user, logOut } = useContext(AuthContext);
+  const [state,setState] = useState("light-mode");
+
+  const change = () => {
+    if(state === "light-mode"){
+      setState("dark-mode")
+    }else{
+      setState("light-mode")
+    }
+  }
+
+  useEffect(()=>{
+    document.querySelector("body").className=state
+  },[state])
+
   return (
     <>
       <div className="navbar text-white  ">
@@ -137,6 +151,7 @@ export default function Navbar() {
               <NavLink to={`/fovaurite`} className="mt-2">
                 My Favorites
               </NavLink>
+              <div className="icon mt-2" onClick={change}>{ state == "light-mode" ? <i class="fa-solid fa-sun"></i>: <i class="fa-solid fa-moon"></i>}</div>
             </div>
           </ul>
          
