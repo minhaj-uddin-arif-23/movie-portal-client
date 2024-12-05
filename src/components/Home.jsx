@@ -1,10 +1,15 @@
 import React from 'react'
+import SlidesBanner from '../extraHome_section/SlidesBanner'
+import Faq from '../extraHome_section/Faq'
 
 export default function Home() {
   return (
     <div className=''>
-      
-     <h1>Welcome to home page</h1>
+    <section>
+    <SlidesBanner />
+      <Faq/>
+    </section>   
+   
       </div>
   )
 }

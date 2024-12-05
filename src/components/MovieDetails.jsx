@@ -1,20 +1,22 @@
 import React, { useState } from 'react'
-import { useLoaderData } from 'react-router-dom'
+import { useLoaderData, useParams } from 'react-router-dom'
 import DetailsMovie from './DetailsMovie'
 
 export default function MovieDetails() {
+  // const {id} = useParams()
   const allData = useLoaderData()
   const [movies,setMovie] = useState(allData)
+  // console.log(movies)
   return (
-    <div>
-      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+    <>
+      <div className=''>
         {
-          allData?.map(data => <DetailsMovie key={data._id} 
-              movies={movies}
-              setMovie={setMovie}
-            sendAllMovie={data} />)
+           movies ? < DetailsMovie key={movies._id} movies={movies}
+           setMovie={setMovie}
+         data={movies} /> : "Not found" 
         }
       </div>
-    </div>
+    </>
   )
 }
+

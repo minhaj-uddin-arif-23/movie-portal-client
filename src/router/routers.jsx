@@ -29,17 +29,23 @@ export const routers = createBrowserRouter([
       {
         path: "allMovie",
         element: <AllMovie />,
-        loader:()=> fetch(`http://localhost:5500/addmovie`)
+        loader: () => fetch(`http://localhost:5500/addmovie`),
       },
       {
-        path: "movieDetails",
-        element: <MovieDetails />,
-        loader:()=> fetch(`http://localhost:5500/addmovie`)
+        path: "/movieDetails/:id",
+        element: (
+          <Private_Router>
+            <MovieDetails />
+          </Private_Router>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5500/addmovie/${params.id}`),
       },
       {
         path: "updateMovie/:id",
         element: <Update />,
-        loader:({params})=> fetch(`http://localhost:5500/addmovie/${params.id}`)
+        loader: ({ params }) =>
+          fetch(`http://localhost:5500/addmovie/${params.id}`),
       },
 
       {

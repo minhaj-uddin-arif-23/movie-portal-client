@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function MovieCard({sendCard}) {
-  const {image,title,genre,duration,releaseYear,rating,} = sendCard || {}
+  const {_id,image,title,genre,duration,releaseYear,rating,} = sendCard || {}
   return (
     <div className="my-4">
       <div className="border-2 border-gray-100 card card-compact   w-72 sm:w-80 md:w-80 shadow-2xl rounded-lg overflow-hidden transform hover:scale-105 transition duration-300 ease-in-out">
@@ -27,7 +27,7 @@ export default function MovieCard({sendCard}) {
             </div>
           </div>
           <div className="card-actions mt-3">
-          <Link to={`/movieDetails`} class="btn btn-active btn-secondary">See Details</Link>
+          <Link to={`/movieDetails/${_id}`} class="btn btn-active btn-secondary">See Details</Link>
           </div>
         </div>
       </div>

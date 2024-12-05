@@ -9,10 +9,15 @@ export default function RootElement() {
   return (
     <div className=' '>
       <header className='w-11/12 mx-auto '>
-        <Navbar />
+      <div className='z-50  fixed top-0 w-11/12 mx-auto  shadow-md'>
+      <Navbar />
+      </div>
         
-        <Outlet />
-        <Faq/>
+        
+       <div className='my-28'>
+       <Outlet />
+       </div>
+      
       </header>
       <footer className='mt-10 '>
        

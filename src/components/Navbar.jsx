@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
 import { FaUserCircle } from "react-icons/fa";
-import { RiMovieAiLine } from "react-icons/ri";
+import { RiMovie2Line, RiMovieAiLine } from "react-icons/ri";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
 export default function Navbar() {
@@ -77,7 +77,7 @@ export default function Navbar() {
                       />
                       <button
                         onClick={logOut}
-                        className="btn bg-green-300 text-black"
+                        className="btn bg-pink-600 text-black"
                       >
                         Sign Out
                       </button>
@@ -124,8 +124,8 @@ export default function Navbar() {
               to={`/`}
               className="w-96 text-2xl md:ml-2 flex gap-3 lg:ml-2 font-semibold  "
             >
-            <RiMovieAiLine />
-                Movie <span className="text-yellow-400">Portal</span>
+            <p className="mt-1"><RiMovie2Line /></p>
+                Movie <span className="text-pink-500">Portal</span>
             </Link>
           </div>
         </div>
