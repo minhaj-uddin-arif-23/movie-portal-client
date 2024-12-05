@@ -6,6 +6,38 @@ export default function DetailsMovie({ movies, setMovie }) {
   const { _id, image, title, genre, duration, releaseYear, rating, summary } =
     movies || {};
 
+  // const addToFavourite = (_id) => {
+  //   console.log(_id)
+  //   Swal.fire({
+  //     title: "Are you sure?",
+  //     text: "You won't be able to revert this!",
+  //     icon: "warning",
+  //     showCancelButton: true,
+  //     confirmButtonColor: "#3085d6",
+  //     cancelButtonColor: "#d33",
+  //     confirmButtonText: "Yes, delete it!",
+  //   }).then((result) => {
+  //     if (result.isConfirmed) {
+  //       fetch(`http://localhost:5500/addmovie/${_id}`, {
+  //         method: "POST",
+  //         headers:{
+  //           "content-type":"application/json"
+  //         },
+  //         body:JSON.stringify()
+  //       })
+  //         .then((res) => res.json())
+  //         .then((data) => {
+  //           if (data.deletedCount > 0) {
+  //             Swal.fire("Deleted!", "Your Movie has been deleted.", "success");
+  //             const remaining = movies.filter((movie) => movie._id !== _id);
+  //             setMovie(remaining);
+  //           }
+  //         });
+  //     }
+  //   });
+  // }
+
+  // delete the movie
   const deleteMovie = (_id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -34,7 +66,7 @@ export default function DetailsMovie({ movies, setMovie }) {
 
   return (
     <div className="my-4 flex justify-center">
-      <div className="w-full max-w-sm sm:max-w-md md:max-w-5xl border-2 border-gray-200  shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition duration-300 ease-in-out">
+      <div className="w-full max-w-sm sm:max-w-md md:max-w-5xl border-2 border-gray-200  shadow-lg rounded-lg overflow-hidden  ">
         <figure>
           <img
             src={image}
@@ -56,18 +88,20 @@ export default function DetailsMovie({ movies, setMovie }) {
           </div>
           <p className=" text-sm mb-4">{summary}</p>
           <div className="flex space-x-3">
-            <button className="btn btn-outline btn-secondary py-2 px-4 rounded-lg text-sm font-medium transition duration-200 ease-in-out transform hover:bg-gray-200 hover:scale-105">
+            <button 
+              // onClick={() => addToFavourite(_id)}
+            className="btn btn-outline btn-secondary">
               Add to Favorite
             </button>
             <button
               onClick={() => deleteMovie(_id)}
-              className="btn btn-outline btn-error py-2 px-4 rounded-lg text-sm font-medium transition duration-200 ease-in-out transform hover:bg-red-200 hover:scale-105"
+              className="btn btn-outline btn-error "
             >
               Delete Movie
             </button>
             <Link
               to={`/updateMovie/${_id}`}
-              className="btn btn-accent py-2 px-4 rounded-lg text-sm font-medium transition duration-200 ease-in-out transform hover:bg-indigo-600 hover:scale-105"
+              className="btn btn-accent "
             >
               Update Movie
             </Link>

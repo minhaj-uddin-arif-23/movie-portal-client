@@ -135,7 +135,7 @@ export default function Login() {
                   </Link>
                   <div>
                     <Link
-                      to={`/auth/register`}
+                      to={`/auth/signUp`}
                       className="text-md hover:underline"
                     >
                       Create account

@@ -76,42 +76,42 @@ export default function AddMovie() {
   };
 
   return (
-    <div className=" min-h-screen flex justify-center items-center ">
-      <div className="bg-purple text-black card rounded-lg w-full max-w-md p-6 shadow-lg">
-        <h1 className="text-2xl font-semibold text-center mb-6 text-white">Add Movie</h1>
-        <form onSubmit={addMovie} className="space-y-4  bg-gray-900 w-[600px]">
+    <div className=" min-h-screen flex justify-center items-center  ">
+      <div className="bg-purple  card rounded-lg w-full max-w-2xl p-6 shadow-lg border-2 border-red-600">
+        <h1 className="text-2xl font-semibold text-center mb-6 ">Add Movie</h1>
+        <form onSubmit={addMovie} className="space-y-4   w-[600px]">
           {/* Image URL */}
      <div className="flex justify-evenly  ">
      <section className="space-y-5">
       <div>
-            <label className="block font-medium text-white">
+            <label className="block font-medium ">
               Movie Poster URL
             </label>
             <input
               type="text"
               name="image"
               placeholder="Enter Image URL"
-              className=" input input-bordered w-full bg-black border-2 border-white backdrop-blur-md text-white"
+              className=" input input-bordered w-full  border-2  backdrop-blur-md "
             />
           </div>
 
           <div>
-            <label className="block font-medium text-white">Movie Title</label>
+            <label className="block font-medium ">Movie Title</label>
             <input
               type="text"
               name="title"
               placeholder="Enter Movie Title"
-              className=" input input-bordered w-full bg-black border-2 border-white backdrop-blur-md text-white"
+              className=" input input-bordered w-full  border-2  backdrop-blur-md "
             />
           </div>
 
           {/* Genre */}
           <div>
-            <label className="block font-medium text-white">Genre</label>
+            <label className="block font-medium ">Genre</label>
             <select
               value={genre}
               onChange={(e) => setGenre(e.target.value)}
-              className="select select-bordered  w-full bg-black border-2 border-white backdrop-blur-md text-white"
+              className="select select-bordered  w-full border-2  "
             >
               <option value="">Select Genre</option>
               <option value="comedy">Comedy</option>
@@ -125,14 +125,14 @@ export default function AddMovie() {
 
           {/* Duration */}
           <div>
-            <label className="block font-medium text-white">
+            <label className="block font-medium ">
               Duration (in minutes)
             </label>
             <input
               type="number"
               name="duration"
               placeholder="Enter Duration"
-              className="input input-bordered w-full bg-black border-2 border-white backdrop-blur-md text-white"
+              className="input input-bordered w-full  border-2  backdrop-blur-md "
               min={61}
             />
          
@@ -141,11 +141,11 @@ export default function AddMovie() {
 <section className="space-y-3">
   
 <div>
-            <label className="block font-medium text-white">Release Year</label>
+            <label className="block font-medium ">Release Year</label>
             <select
               value={releaseYear}
               onChange={(e) => setReleaseYear(e.target.value)}
-              className="select select-bordered w-full input  bg-black border-2 border-white backdrop-blur-md text-white"
+              className="select select-bordered w-full input border-2  backdrop-blur-md "
             >
               <option value="">Select Year</option>
               <option value="2024">2024</option>
@@ -160,7 +160,7 @@ export default function AddMovie() {
           </div>
 
           <div className=" items-center">
-            <label className="block font-medium text-white">Rating</label>
+            <label className="block font-medium ">Rating</label>
             <Rating
               onClick={(rate) => setRating(rate)}
               ratingValue={rating}
@@ -170,12 +170,12 @@ export default function AddMovie() {
           </div>
 
           <div>
-            <label className="block font-medium text-white">Summary</label>
+            <label className="block font-medium ">Summary</label>
             <textarea
               name="summary"
               rows="4"
               placeholder="Enter Movie Summary"
-              className="textarea textarea-bordered  w-full bg-black border-2 border-white backdrop-blur-md text-white"
+              className="textarea textarea-bordered  w-full border-2  backdrop-blur-md "
             ></textarea>
           </div>
 </section>

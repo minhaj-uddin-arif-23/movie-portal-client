@@ -3,7 +3,7 @@ import React from "react";
 export default function Faq() {
   return (
    <>
-    <h1 className="text-5xl text-pink-500 my-20">Frequently Asked Question</h1>
+    <h1 className="text-5xl text-pink-500 ">Frequently Asked Question</h1>
     <div className="border-2 border-gray-100  rounded-lg my-10">
     <div className="collapse collapse-arrow mt-7 ">
       <input type="radio" name="my-accordion-2" defaultChecked />

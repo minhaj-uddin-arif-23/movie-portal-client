@@ -5,6 +5,7 @@ import Loading from '../components/Loading'
 
 export default function Private_Router({children}) {
   const {user,loading} =useContext(AuthContext)
+  
   if(loading){
     return <Loading />
   }

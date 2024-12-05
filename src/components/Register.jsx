@@ -127,7 +127,7 @@ export default function Register() {
             {/* <Helmet>
               <title>Eco adventure | Register</title>
             </Helmet> */}
-            <div className="border-2 border-gray-400 card bg-white/20 font-medium w-full max-w- shrink-0 shadow-2xl   lg:my-10 animate__animated animate__slideInRight mb-6">
+            <div className="border-2 border-gray-400 card  font-medium w-full max-w- shrink-0 shadow-2xl   lg:my-10 animate__animated animate__slideInRight mb-6">
               <form onSubmit={handleRegister} className="card-body ">
                 <div>
                   <h1 className="font-semibold text-4xl ml-20 md:ml-14 lg:ml-48">Register</h1>
@@ -136,25 +136,25 @@ export default function Register() {
           <section>
               <div className="form-control">
                   <label className="label">
-                    <span className="label-text text-lg text-white">Name</span>
+                    <span className="label-text text-lg ">Name</span>
                   </label>
                   <input
                     name="name"
                     type="text"
                     placeholder="username"
-                    className="input input-bordered bg-black border-2 border-white backdrop-blur-md text-white"
+                    className="input input-bordered border-2 backdrop-blur-md"
                     required
                   />
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text text-lg text-white">Photo</span>
+                    <span className="label-text text-lg ">Photo</span>
                   </label>
                   <input
                     name="photo"
                     type="text"
                     placeholder="Photo url"
-                    className="input input-bordered bg-black border-2 border-white backdrop-blur-md text-white"
+                    className="input input-bordered  border-2  backdrop-blur-md "
                     required
                   />
                 </div>
@@ -162,25 +162,25 @@ export default function Register() {
                 <section>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text text-lg text-white">Email</span>
+                    <span className="label-text text-lg ">Email</span>
                   </label>
                   <input
                     name="email"
                     type="email"
                     placeholder="Enter your email"
-                    className="input input-bordered bg-black border-2 border-white backdrop-blur-md text-white"
+                    className="input input-bordered  border-2  backdrop-blur-md "
                     required
                   />
                 </div>
                 <div className="form-control relative">
                   <label className="label">
-                    <span className="label-text text-lg text-white">Password</span>
+                    <span className="label-text text-lg ">Password</span>
                   </label>
                   <input
                     name="password"
                     type={showPassword ? "text" : "password"}
                     placeholder="password"
-                    className="input input-bordered bg-black border-2 border-white backdrop-blur-md text-white"
+                    className="input input-bordered border-2 border-white backdrop-blur-md "
                     required
                   />
                 </div>
@@ -199,7 +199,7 @@ export default function Register() {
                       name="checked"
                       className="checkbox"
                     />
-                    <span className="label-text text-white">
+                    <span className="label-text ">
                       Accept Tearms & condition
                     </span>
                   </label>
@@ -207,7 +207,7 @@ export default function Register() {
 
                 <div className="form-control mt-6">
                   {/* to={`/login`} */}
-                  <button className="btn bg-[#ea4c89] border-2 border-gray-300 font-medium text-white text-lg hover:bg-black hover:text-[#ea4c89]">
+                  <button className="btn bg-[#ea4c89] border-2 border-gray-300 font-medium  text-lg  hover:text-[#ea4c89]">
                     Sign up
                   </button>
                 </div>
@@ -223,18 +223,18 @@ export default function Register() {
                   <div>
                     <Link
                       to={`/auth/login`}
-                      className="text-md font-semibold btn btn-outline text-white hover:bg-[#ea4c89]"
+                      className="text-md font-semibold btn btn-outline  hover:bg-[#ea4c89]"
                     >
                       Sing in
                     </Link>
                   </div>
                 </label>
-                <p className="text-gray-400 mt-2">Or sign in with </p>
-                <p className="text-gray-400 "> </p>
+                <p className=" mt-2">Or sign in with </p>
+                <p className=""> </p>
                 <div className="flex">
                   <button
                     onClick={handleGoogleLogin}
-                    className=" btn rounded-full w-14 text-4xl bg-white hover:bg-white hover:text-white ml-32 lg:ml-64"
+                    className=" btn rounded-full w-14 text-4xl  ml-32 lg:ml-64"
                   >
                     <FcGoogle />
                   </button>

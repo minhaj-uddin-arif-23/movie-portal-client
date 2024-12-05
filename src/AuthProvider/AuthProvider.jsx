@@ -12,7 +12,7 @@ export const AuthContext = createContext()
 export default function AuthProvider({children}) {
 
     const [user,setUser] = useState(null)
-    const [loading,setLoading] = useState(false)
+    const [loading,setLoading] = useState(true)
 
     // sign out in user
   const logOut=() => {
@@ -46,7 +46,7 @@ export default function AuthProvider({children}) {
 
   // send to another files route 
   const user_Information_Send = {
-    user,setUser,logOut,createuser,googleSignIn,signIn,updateUser,passwordReset
+    user,setUser,logOut,createuser,googleSignIn,signIn,updateUser,passwordReset,loading
   }
   // user data can not be remove when refresh or reload
   useEffect(()=>{
