@@ -5,7 +5,7 @@ import Faq from '../extraHome_section/Faq'
 export default function Home() {
   return (
     <div className=''>
-    <section>
+    <section className='my-20'>
     <SlidesBanner />
       <Faq/>
     </section>   
