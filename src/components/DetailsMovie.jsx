@@ -1,41 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 export default function DetailsMovie({ movies, setMovie }) {
   const { _id, image, title, genre, duration, releaseYear, rating, summary } =
     movies || {};
+const navigate =useNavigate()
 
-  // const addToFavourite = (_id) => {
-  //   console.log(_id)
-  //   Swal.fire({
-  //     title: "Are you sure?",
-  //     text: "You won't be able to revert this!",
-  //     icon: "warning",
-  //     showCancelButton: true,
-  //     confirmButtonColor: "#3085d6",
-  //     cancelButtonColor: "#d33",
-  //     confirmButtonText: "Yes, delete it!",
-  //   }).then((result) => {
-  //     if (result.isConfirmed) {
-  //       fetch(`http://localhost:5500/addmovie/${_id}`, {
-  //         method: "POST",
-  //         headers:{
-  //           "content-type":"application/json"
-  //         },
-  //         body:JSON.stringify()
-  //       })
-  //         .then((res) => res.json())
-  //         .then((data) => {
-  //           if (data.deletedCount > 0) {
-  //             Swal.fire("Deleted!", "Your Movie has been deleted.", "success");
-  //             const remaining = movies.filter((movie) => movie._id !== _id);
-  //             setMovie(remaining);
-  //           }
-  //         });
-  //     }
-  //   });
-  // }
 
   // delete the movie
   const deleteMovie = (_id) => {
@@ -56,13 +27,16 @@ export default function DetailsMovie({ movies, setMovie }) {
           .then((data) => {
             if (data.deletedCount > 0) {
               Swal.fire("Deleted!", "Your Movie has been deleted.", "success");
-              const remaining = movies.filter((movie) => movie._id !== _id);
-              setMovie(remaining);
+              navigate('/allMovie');
             }
+          })
+          .catch((error) => {
+            Swal.fire("Error!", "Something went wrong. Please try again.", "error");
+            console.error("Error deleting movie:", error);
           });
       }
     });
-  };
+};
 
   return (
     <div className="my-4 flex justify-center">

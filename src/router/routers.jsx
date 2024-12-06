@@ -42,7 +42,7 @@ export const routers = createBrowserRouter([
           fetch(`http://localhost:5500/addmovie/${params.id}`),
       },
       {
-        path: "updateMovie/:id",
+        path: "/updateMovie/:id",
         element: <Update />,
         loader: ({ params }) =>
           fetch(`http://localhost:5500/addmovie/${params.id}`),

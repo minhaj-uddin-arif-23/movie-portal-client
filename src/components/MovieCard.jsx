@@ -5,6 +5,7 @@ export default function MovieCard({sendCard}) {
   const {_id,image,title,genre,duration,releaseYear,rating,} = sendCard || {}
   return (
     <div className="my-4">
+     
       {/* <h1 className="text-4xl font-semibold  ">You Can see All Movies</h1> */}
       <div className="border-2 border-gray-100 card card-compact   w-72 sm:w-80 md:w-80 shadow-2xl rounded-lg overflow-hidden transform hover:scale-105 transition duration-300 ease-in-out">
         <figure>

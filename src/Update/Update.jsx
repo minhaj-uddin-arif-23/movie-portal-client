@@ -69,7 +69,7 @@ export default function Update() {
     setReleaseYear("");
 
     fetch(`http://localhost:5500/addmovie/${_id}`, {
-      method: "PUT",
+      method: "PATCH",
       headers: {
         "content-type": "application/json"
       },
