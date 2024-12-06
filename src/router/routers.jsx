@@ -43,7 +43,11 @@ export const routers = createBrowserRouter([
       },
       {
         path: "/updateMovie/:id",
-        element: <Update />,
+        element: (
+          <Private_Router>
+            <Update />
+          </Private_Router>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5500/addmovie/${params.id}`),
       },
@@ -66,7 +70,11 @@ export const routers = createBrowserRouter([
       },
       {
         path: "fovaurite",
-        element: <Myfavourite />,
+        element: (
+          <Private_Router>
+            <Myfavourite />
+          </Private_Router>
+        ),
       },
     ],
   },

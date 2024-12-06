@@ -11,8 +11,8 @@ export default function AllMovie() {
     fetch(`http://localhost:5500/addmovie?serchParams=${search}`)
       .then((res) => res.json())
       .then((data) => {
-        // console.log(data)
-        setMovieData(data);
+        setMovieData(data)
+      //  {movieData ?  setMovieData(data) : "NO MOVIE FOUND"}
       });
   }, [search]);
 

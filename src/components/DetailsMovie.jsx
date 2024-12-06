@@ -39,7 +39,8 @@ const navigate =useNavigate()
 };
 
   return (
-    <div className="my-4 flex justify-center">
+    <>
+      <div className="my-4 flex justify-center">
       <div className="w-full max-w-sm sm:max-w-md md:max-w-5xl border-2 border-gray-200  shadow-lg rounded-lg overflow-hidden  ">
         <figure>
           <img
@@ -83,5 +84,7 @@ const navigate =useNavigate()
         </div>
       </div>
     </div>
+        <Link to={`/allMovie`} className="btn mt-4 ml-44">See all movie</Link>
+    </>
   );
 }

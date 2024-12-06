@@ -29,7 +29,7 @@ export default function MovieCard({sendCard}) {
             </div>
           </div>
           <div className="card-actions mt-3">
-          <Link to={`/movieDetails/${_id}`} class="btn btn-active btn-secondary">See Details</Link>
+          <Link to={`/movieDetails/${_id}`} class="btn">See Details</Link>
           </div>
         </div>
       </div>
