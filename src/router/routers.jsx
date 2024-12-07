@@ -25,7 +25,7 @@ export const routers = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader:()=> fetch(`http://localhost:5500/addmovie`)
+        loader:()=> fetch(`http://localhost:5500/feturemovie`)
       },
       {
         path: "allMovie",

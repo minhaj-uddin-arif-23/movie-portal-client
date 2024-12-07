@@ -7,19 +7,19 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 
 export default function Navbar() {
   const { user, logOut } = useContext(AuthContext);
-  const [state,setState] = useState("light-mode");
+  const [state, setState] = useState("dark-mode");
 
   const change = () => {
-    if(state === "light-mode"){
-      setState("dark-mode")
-    }else{
-      setState("light-mode")
+    if (state === "dark-mode") {
+      setState("light-mode");
+    } else {
+      setState("dark-mode");
     }
-  }
+  };
 
-  useEffect(()=>{
-    document.querySelector("body").className=state
-  },[state])
+  useEffect(() => {
+    document.querySelector("body").className = state;
+  }, [state]);
 
   return (
     <>
@@ -46,27 +46,33 @@ export default function Navbar() {
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow text-black"
             >
-               <div className="icon mt-2" onClick={change}>{ state == "light-mode" ? <i class="fa-solid fa-sun"></i>: <i class="fa-solid fa-moon"></i>}</div>
-               <NavLink to={`/`} className="mt-2">
+              <div className="icon mt-2" onClick={change}>
+                {state == "light-mode" ? (
+                  <i class="fa-solid fa-sun"></i>
+                ) : (
+                  <i class="fa-solid fa-moon"></i>
+                )}
+              </div>
+              <NavLink to={`/`} className="mt-2">
                 Home
               </NavLink>
               <NavLink to={`/allMovie`} className="mt-2">
                 All Movie
               </NavLink>
               <NavLink to={`/tv`} className="mt-2">
-               Tv Show
+                Tv Show
               </NavLink>
               <NavLink to={`/blog`} className="mt-2">
                 Blog
               </NavLink>
-               {/* this is private route */}
+              {/* this is private route */}
               <NavLink to={`/addMovie`} className="mt-2">
                 Add Movie
               </NavLink>
               <NavLink to={`/fovaurite`} className="mt-2">
                 My Favorites
               </NavLink>
-              
+
               <div className="flex">
                 {user && user?.email ? (
                   <div className="flex gap-2">
@@ -77,10 +83,7 @@ export default function Navbar() {
                         title={user?.displayName}
                         alt=""
                       />
-                      <button
-                        onClick={logOut}
-                        className="btn bg-pink-600"
-                      >
+                      <button onClick={logOut} className="btn bg-pink-600">
                         Sign Out
                       </button>
                     </Link>
@@ -90,10 +93,7 @@ export default function Navbar() {
                     <FaUserCircle />
 
                     {user && user?.email ? (
-                      <button
-                        onClick={logOut}
-                        className="btn "
-                      >
+                      <button onClick={logOut} className="btn ">
                         Sign Out
                       </button>
                     ) : (
@@ -116,8 +116,6 @@ export default function Navbar() {
                     )}
                   </div>
                 )}
-
-                
               </div>
             </ul>
           </div>
@@ -126,8 +124,10 @@ export default function Navbar() {
               to={`/`}
               className="w-96 text-2xl md:ml-2 flex gap-3 lg:ml-2 font-semibold  "
             >
-            <p className="mt-1"><RiMovie2Line /></p>
-                Movie <span className="text-pink-500">Portal</span>
+              <p className="mt-1">
+                <RiMovie2Line />
+              </p>
+              Movie <span className="text-pink-500">Portal</span>
             </Link>
           </div>
         </div>
@@ -141,22 +141,27 @@ export default function Navbar() {
                 All Movie
               </NavLink>
               <NavLink to={`/tv`} className="mt-2">
-               Tv Show
+                Tv Show
               </NavLink>
               <NavLink to={`/blog`} className="mt-2">
                 Blog
               </NavLink>
-               {/* this is private route */}
+              {/* this is private route */}
               <NavLink to={`/addMovie`} className="mt-2">
                 Add Movie
               </NavLink>
               <NavLink to={`/fovaurite`} className="mt-2">
                 My Favorites
               </NavLink>
-              <div className="icon mt-2" onClick={change}>{ state == "light-mode" ? <i class="fa-solid fa-sun"></i>: <i class="fa-solid fa-moon"></i>}</div>
+              <div className="icon mt-2" onClick={change}>
+                {state == "light-mode" ? (
+                  <i class="fa-solid fa-sun"></i>
+                ) : (
+                  <i class="fa-solid fa-moon"></i>
+                )}
+              </div>
             </div>
           </ul>
-         
         </div>
         <div className=" navbar-end gap-3 invisible md:visible">
           <div className="flex">
@@ -182,7 +187,6 @@ export default function Navbar() {
               <button onClick={logOut} className="btn bg-[#ea4c89] text-white">
                 Sign Out
               </button>
-             
             </>
           ) : (
             <div className="flex gap-3">
@@ -207,4 +211,3 @@ export default function Navbar() {
     </>
   );
 }
-

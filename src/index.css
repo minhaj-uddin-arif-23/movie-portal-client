@@ -9,6 +9,10 @@ html{
 a.active{
   color:deeppink;
 }
+.dark-mode{
+  background-color: #22262f;
+  color: white;
+}
 .light-mode{
   background-color: white;
   color: black;
@@ -18,8 +22,4 @@ a.active{
 }
 .icon{
   cursor: pointer;
-}
-.dark-mode{
-  background-color: #22262f;
-  color: white;
 }

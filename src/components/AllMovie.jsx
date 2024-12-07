@@ -18,7 +18,7 @@ export default function AllMovie() {
 
   // console.log(search)
   return (
-    <div>
+    <div className="">
       <div>
         <input
           placeholder="Search Movie"
