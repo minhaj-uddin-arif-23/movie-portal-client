@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
-export default function FavouriteCardss({ send ,favourite,setFavourite}) {
+export default function FavouriteCardss({ send, favourite, setFavourite }) {
   const { _id, image, title, genre, duration, releaseYear, rating } =
     send || {};
   const navigate = useNavigate();
@@ -20,18 +20,17 @@ export default function FavouriteCardss({ send ,favourite,setFavourite}) {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5500/favourite/${_id}`, {
+        fetch(`https://movie-portal-server-eight.vercel.app/favourite/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
               Swal.fire("Deleted!", "Your Movie has been deleted.", "success");
-              const restFav = favourite.filter(fav => fav._id != _id)
-              setFavourite(restFav)
+              const restFav = favourite.filter((fav) => fav._id != _id);
+              setFavourite(restFav);
               navigate("/fovaurite");
             }
-           
           })
           .catch((error) => {
             Swal.fire(
@@ -39,7 +38,7 @@ export default function FavouriteCardss({ send ,favourite,setFavourite}) {
               "Something went wrong. Please try again.",
               "error"
             );
-            console.error("Error deleting movie:", error);
+            // console.error("Error deleting movie:", error);
           });
       }
     });

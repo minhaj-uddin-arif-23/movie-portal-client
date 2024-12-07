@@ -5,10 +5,18 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
 export default function Update() {
-  const {user} = useContext(AuthContext)
+  const { user } = useContext(AuthContext);
   const movies = useLoaderData();
-  const { _id, image, title, genre:movieGenre, duration, releaseYear:movieRealeaseYear, rating:movieRatng, summary } =
-    movies || {};
+  const {
+    _id,
+    image,
+    title,
+    genre: movieGenre,
+    duration,
+    releaseYear: movieRealeaseYear,
+    rating: movieRatng,
+    summary,
+  } = movies || {};
   const [rating, setRating] = useState(movieRatng || 0);
   const [genre, setGenre] = useState(movieGenre || "");
   const [releaseYear, setReleaseYear] = useState(movieRealeaseYear || "");
@@ -58,7 +66,8 @@ export default function Update() {
       releaseYear,
       rating,
       summary,
-      email:user.email,displayName:user.displayName,
+      email: user.email,
+      displayName: user.displayName,
     };
 
     // console.log("Movie added:", updatemovie);
@@ -70,10 +79,10 @@ export default function Update() {
     setGenre("");
     setReleaseYear("");
 
-    fetch(`http://localhost:5500/addmovie/${_id}`, {
+    fetch(`https://movie-portal-server-eight.vercel.app/addmovie/${_id}`, {
       method: "PATCH",
       headers: {
-        "content-type": "application/json"
+        "content-type": "application/json",
       },
       body: JSON.stringify(updatemovie),
     })
@@ -92,7 +101,7 @@ export default function Update() {
         }
       });
 
-    // console.log(data));
+    // console.log(data);
   };
   return (
     <div className="bg-black rounded-3xl min-h-screen flex justify-center items-center ">
@@ -104,7 +113,6 @@ export default function Update() {
           onSubmit={updateMovie}
           className="space-y-4  bg-white/10 w-[600px] border-2 border-gray-500 p-3 shadow-2xl rounded-xl"
         >
-          {/* Image URL */}
           <div className="flex justify-evenly  ">
             <section className="space-y-5">
               <div>
@@ -133,7 +141,6 @@ export default function Update() {
                 />
               </div>
 
-              {/* Genre */}
               <div>
                 <label className="block font-medium text-white">Genre</label>
                 <select

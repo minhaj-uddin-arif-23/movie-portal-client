@@ -8,7 +8,9 @@ export default function Myfavourite({ email }) {
   const { user } = useContext(AuthContext);
   const [favourite, setFavourite] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5500/api/favourite/${user?.email}`)
+    fetch(
+      `https://movie-portal-server-eight.vercel.app/api/favourite/${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => setFavourite(data));
   }, [user?.email]);
@@ -17,32 +19,24 @@ export default function Myfavourite({ email }) {
   return (
     <div>
       <div className="my-4">
-         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-col-3 gap-5"> 
-        
-      
-        {
-          favourite.length === 0 ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {favourite.length === 0 ? (
             <p>No data found</p>
-          ):(
+          ) : (
             favourite?.map((item) => (
-              <FavouriteCardss key={item?._id} send={item} favourite={favourite} setFavourite={setFavourite} />
+              <FavouriteCardss
+                key={item?._id}
+                send={item}
+                favourite={favourite}
+                setFavourite={setFavourite}
+              />
             ))
-          )
-        }
-            </div>
+          )}
+        </div>
       </div>
     </div>
   );
 }
-
-
-
-
-
-
-
-
-
 
 /*
 import React, { useContext, useEffect, useState } from 'react'
@@ -56,7 +50,7 @@ export default function Myfavourite({email}) {
   const {user} = useContext(AuthContext)
   const [favourite,setFavourite] = useState()
   useEffect(()=>{
-    fetch(`http://localhost:5500/api/favourite/${user?.email}`)
+    fetch(`https://movie-portal-server-eight.vercel.app/api/favourite/${user?.email}`)
     .then(res => res.json())
     .then(data => setFavourite(data))
 

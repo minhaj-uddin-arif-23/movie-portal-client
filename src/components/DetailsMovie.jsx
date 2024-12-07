@@ -28,7 +28,7 @@ export default function DetailsMovie({ movies, setMovie }) {
   }, []);
   //add to favourite
   const addToFavourite = (_id) => {
-    fetch(`http://localhost:5500/favourite`, {
+    fetch(`https://movie-portal-server-eight.vercel.app/favourite`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -41,7 +41,7 @@ export default function DetailsMovie({ movies, setMovie }) {
         console.log(data);
       });
   };
-  console.log(allMovie);
+  // console.log(allMovie);
 
   // delete the movie
   const deleteMovie = (_id) => {
@@ -55,7 +55,7 @@ export default function DetailsMovie({ movies, setMovie }) {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5500/addmovie/${_id}`, {
+        fetch(`https://movie-portal-server-eight.vercel.app/addmovie/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

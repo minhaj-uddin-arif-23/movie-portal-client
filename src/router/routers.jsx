@@ -25,12 +25,14 @@ export const routers = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader:()=> fetch(`http://localhost:5500/feturemovie`)
+        loader: () =>
+          fetch(`https://movie-portal-server-eight.vercel.app/feturemovie`),
       },
       {
         path: "allMovie",
         element: <AllMovie />,
-        loader: () => fetch(`http://localhost:5500/addmovie`),
+        loader: () =>
+          fetch(`https://movie-portal-server-eight.vercel.app/addmovie`),
       },
       {
         path: "/movieDetails/:id",
@@ -40,7 +42,9 @@ export const routers = createBrowserRouter([
           </Private_Router>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5500/addmovie/${params.id}`),
+          fetch(
+            `https://movie-portal-server-eight.vercel.app/addmovie/${params.id}`
+          ),
       },
       {
         path: "/updateMovie/:id",
@@ -50,7 +54,9 @@ export const routers = createBrowserRouter([
           </Private_Router>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5500/addmovie/${params.id}`),
+          fetch(
+            `https://movie-portal-server-eight.vercel.app/addmovie/${params.id}`
+          ),
       },
 
       {
@@ -76,7 +82,6 @@ export const routers = createBrowserRouter([
             <Myfavourite />
           </Private_Router>
         ),
-      
       },
     ],
   },
@@ -95,7 +100,7 @@ export const routers = createBrowserRouter([
     ],
   },
   {
-    path:"*",
-    element:<Error />
-  }
+    path: "*",
+    element: <Error />,
+  },
 ]);

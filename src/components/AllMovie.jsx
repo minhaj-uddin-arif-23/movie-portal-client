@@ -9,11 +9,13 @@ export default function AllMovie() {
   const [movieData, setMovieData] = useState(getData);
   // multiple time search needed that's why we use useeffect not loader
   useEffect(() => {
-    fetch(`http://localhost:5500/addmovie?serchParams=${search}`)
+    fetch(
+      `https://movie-portal-server-eight.vercel.app/addmovie?serchParams=${search}`
+    )
       .then((res) => res.json())
       .then((data) => {
-        setMovieData(data)
-      //  {movieData ?  setMovieData(data) : "NO MOVIE FOUND"}
+        setMovieData(data);
+        //  {movieData ?  setMovieData(data) : "NO MOVIE FOUND"}
       });
   }, [search]);
 
