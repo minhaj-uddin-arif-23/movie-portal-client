@@ -1,5 +1,6 @@
 import React from "react";
 import Choose from "../extraHome_section/Choose";
+import Hook from "../extraHome_section/Hook";
 
 const Blog = () => {
   const blogs = [
@@ -47,6 +48,7 @@ const Blog = () => {
       </div>
     </div>
       <Choose />
+      <Hook />
     </>
   );
 };

@@ -44,8 +44,9 @@ export default function Navbar() {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow text-black"
             >
+               <div className="icon mt-2" onClick={change}>{ state == "light-mode" ? <i class="fa-solid fa-sun"></i>: <i class="fa-solid fa-moon"></i>}</div>
                <NavLink to={`/`} className="mt-2">
                 Home
               </NavLink>
@@ -65,6 +66,7 @@ export default function Navbar() {
               <NavLink to={`/fovaurite`} className="mt-2">
                 My Favorites
               </NavLink>
+              
               <div className="flex">
                 {user && user?.email ? (
                   <div className="flex gap-2">
@@ -77,7 +79,7 @@ export default function Navbar() {
                       />
                       <button
                         onClick={logOut}
-                        className="btn bg-pink-600 text-black"
+                        className="btn bg-pink-600"
                       >
                         Sign Out
                       </button>
@@ -90,7 +92,7 @@ export default function Navbar() {
                     {user && user?.email ? (
                       <button
                         onClick={logOut}
-                        className="btn bg-green-300 text-black"
+                        className="btn "
                       >
                         Sign Out
                       </button>
@@ -98,14 +100,14 @@ export default function Navbar() {
                       <div className="flex gap-3">
                         <Link
                           to={`/auth/signin`}
-                          className="btn bg-green-300 font-semibold text-md text-black"
+                          className="btn  font-semibold text-md"
                         >
                           Sign in
                         </Link>
                         <div>
                           <Link
                             to={`/auth/signUp`}
-                            className="btn bg-green-300 font-semibold text-md text-black"
+                            className="btn  font-semibold text-md "
                           >
                             Register
                           </Link>
@@ -177,7 +179,7 @@ export default function Navbar() {
           </div>
           {user && user?.email ? (
             <>
-              <button onClick={logOut} className="btn bg-green-300 text-black">
+              <button onClick={logOut} className="btn bg-[#ea4c89] text-white">
                 Sign Out
               </button>
              
@@ -186,14 +188,14 @@ export default function Navbar() {
             <div className="flex gap-3">
               <Link
                 to={`/auth/signin`}
-                className="btn  bg-[#ea4c89] font-semibold text-md text-white"
+                className="btn  bg-[#e64180] text-white font-semibold text-md "
               >
                 Sign in
               </Link>
               <div>
                 <Link
                   to={`/auth/signUp`}
-                  className="btn btn-outline font-semibold text-md text-white"
+                  className="btn  font-semibold text-md "
                 >
                   Register
                 </Link>

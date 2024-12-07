@@ -3,7 +3,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import RootElement from "../Root/RootElement";
-// import Error from "../components/Error";
+import Error from "../components/Error";
 import Home from "../components/Home";
 import AllMovie from "../components/AllMovie";
 import TvShow from "../components/TvShow";
@@ -25,6 +25,7 @@ export const routers = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+        loader:()=> fetch(`http://localhost:5500/addmovie`)
       },
       {
         path: "allMovie",
@@ -75,6 +76,7 @@ export const routers = createBrowserRouter([
             <Myfavourite />
           </Private_Router>
         ),
+      
       },
     ],
   },
@@ -92,4 +94,8 @@ export const routers = createBrowserRouter([
       },
     ],
   },
+  {
+    path:"*",
+    element:<Error />
+  }
 ]);

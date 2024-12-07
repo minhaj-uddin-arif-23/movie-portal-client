@@ -1,8 +1,8 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-export default function MovieCard({sendCard}) {
-  const {_id,image,title,genre,duration,releaseYear,rating,} = sendCard || {}
+export default function HomeCard({sendCards}) {
+  const {_id,image,title,genre,duration,releaseYear,rating,} = sendCards || {}
   return (
     <div className="my-4">
      
@@ -34,5 +34,5 @@ export default function MovieCard({sendCard}) {
         </div>
       </div>
     </div>
-  );
+  )
 }

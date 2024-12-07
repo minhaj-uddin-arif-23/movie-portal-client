@@ -26,6 +26,7 @@ export default function AllMovie() {
           type="text"
           name="serch"
           required
+          className="input input-bordered border-2 border-gray-400 backdrop-blur-md w-96 dark:bg-[#444850] dark:text-white light-mode:bg-white light-mode:text-black"
           id=""
         />
       </div>

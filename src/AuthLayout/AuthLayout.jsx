@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 import { Outlet } from 'react-router-dom'
+import Foter from '../Footer/Foter'
 
 export default function AuthLayout() {
   return (
@@ -10,6 +11,7 @@ export default function AuthLayout() {
    
     <Outlet />
     </header>
+    <Foter />
     </div>
   )
 }
