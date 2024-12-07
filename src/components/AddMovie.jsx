@@ -82,11 +82,11 @@ export default function AddMovie() {
   console.log(user)
 
   return (
-    <div className="min-h-screen flex justify-center items-center p-4">
-       <Helmet>
-        <title>Movie Portal | Add Movie</title>
-      </Helmet>
-    <div className="bg-purple card rounded-lg w-full max-w-2xl p-6 shadow-lg border-2 border-red-600">
+    <div className="min-h-screen flex justify-center items-center p-4 bg-white text-black dark:bg-[#22262f] dark:text-white">
+    <Helmet>
+      <title>Movie Portal | Add Movie</title>
+    </Helmet>
+    <div className="bg-white card rounded-lg w-full max-w-2xl p-6 shadow-lg border-2 border-red-600 dark:bg-[#22262f] dark:border-gray-700">
       <h1 className="text-2xl font-semibold text-center mb-6">Add Movie</h1>
       <form onSubmit={addMovie} className="space-y-4 w-full">
         {/* Image URL */}
@@ -98,7 +98,7 @@ export default function AddMovie() {
                 type="text"
                 name="image"
                 placeholder="Enter Image URL"
-                className="input input-bordered w-full border-2 backdrop-blur-md"
+                className="input input-bordered w-full border-2 backdrop-blur-md bg-white dark:bg-[#2a2e38] dark:border-gray-700"
               />
             </div>
   
@@ -108,7 +108,7 @@ export default function AddMovie() {
                 type="text"
                 name="title"
                 placeholder="Enter Movie Title"
-                className="input input-bordered w-full border-2 backdrop-blur-md"
+                className="input input-bordered w-full border-2 backdrop-blur-md bg-white dark:bg-[#2a2e38] dark:border-gray-700"
               />
             </div>
   
@@ -118,7 +118,7 @@ export default function AddMovie() {
               <select
                 value={genre}
                 onChange={(e) => setGenre(e.target.value)}
-                className="select select-bordered w-full border-2"
+                className="select select-bordered w-full border-2 bg-white dark:bg-[#2a2e38] dark:border-gray-700"
               >
                 <option value="">Select Genre</option>
                 <option value="comedy">Comedy</option>
@@ -137,7 +137,7 @@ export default function AddMovie() {
                 type="number"
                 name="duration"
                 placeholder="Enter Duration"
-                className="input input-bordered w-full border-2 backdrop-blur-md"
+                className="input input-bordered w-full border-2 backdrop-blur-md bg-white dark:bg-[#2a2e38] dark:border-gray-700"
                 min={61}
               />
             </div>
@@ -149,7 +149,7 @@ export default function AddMovie() {
               <select
                 value={releaseYear}
                 onChange={(e) => setReleaseYear(e.target.value)}
-                className="select select-bordered w-full input border-2 backdrop-blur-md"
+                className="select select-bordered w-full input border-2 backdrop-blur-md bg-white dark:bg-[#2a2e38] dark:border-gray-700"
               >
                 <option value="">Select Year</option>
                 <option value="2024">2024</option>
@@ -179,19 +179,20 @@ export default function AddMovie() {
                 name="summary"
                 rows="4"
                 placeholder="Enter Movie Summary"
-                className="textarea textarea-bordered w-full border-2 backdrop-blur-md"
+                className="textarea textarea-bordered w-full border-2 backdrop-blur-md bg-white dark:bg-[#2a2e38] dark:border-gray-700"
               ></textarea>
             </div>
           </section>
         </div>
   
         {/* Submit Button */}
-        <button type="submit" className="btn bg-[#ea4c89] w-full">
+        <button type="submit" className="btn text-white text-xl w-full dark:bg-[#e63971]">
           Add Movie
         </button>
       </form>
     </div>
   </div>
+  
   
   );
 }

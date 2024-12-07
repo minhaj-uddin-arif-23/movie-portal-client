@@ -2,6 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function MovieCard({sendCard}) {
+
+    
+
   const {_id,image,title,genre,duration,releaseYear,rating,} = sendCard || {}
   return (
     <div className="my-4">
@@ -17,16 +20,16 @@ export default function MovieCard({sendCard}) {
         <div className="card-body">
           <h2 className="card-title">{title}</h2>
          <div className="flex">
-         <p>{genre}</p>
+         <p className="text-lg">{genre}</p>
           <p>
             {duration} min
           </p>
          </div>
           <div className="flex">
             <p>{releaseYear}</p>
-            <div className="mr-24">
-              {rating} * 
-            </div>
+            <div className="mr-24 text-lg">
+             {rating} <i class="fa-solid fa-star text-yellow-400"></i>
+           </div>
           </div>
           <div className="card-actions mt-3">
           <Link to={`/movieDetails/${_id}`} class="btn">See Details</Link>

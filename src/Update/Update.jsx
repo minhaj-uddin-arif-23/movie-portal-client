@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Rating } from "react-simple-star-rating";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 export default function Update() {
+  const {user} = useContext(AuthContext)
   const movies = useLoaderData();
-  const { _id, image, title, genre, duration, releaseYear, rating, summary } =
+  const { _id, image, title, genre:movieGenre, duration, releaseYear:movieRealeaseYear, rating:movieRatng, summary } =
     movies || {};
-  const [ratinge, setRating] = useState(0);
-  const [genree, setGenre] = useState("");
-  const [releaseYearr, setReleaseYear] = useState("");
+  const [rating, setRating] = useState(movieRatng || 0);
+  const [genre, setGenre] = useState(movieGenre || "");
+  const [releaseYear, setReleaseYear] = useState(movieRealeaseYear || "");
 
   const updateMovie = (e) => {
     e.preventDefault();
@@ -27,7 +29,7 @@ export default function Update() {
       Swal.fire("Error", "Title must have at least 2 characters!", "error");
       return;
     }
-    if (!genree) {
+    if (!genre) {
       Swal.fire("Error", "Please select a genre!", "error");
       return;
     }
@@ -35,11 +37,11 @@ export default function Update() {
       Swal.fire("Error", "Duration must be greater than 60 minutes!", "error");
       return;
     }
-    if (!releaseYearr) {
+    if (!releaseYear) {
       Swal.fire("Error", "Please select a release year!", "error");
       return;
     }
-    if (ratinge === 0) {
+    if (rating === 0) {
       Swal.fire("Error", "Please select a rating!", "error");
       return;
     }
@@ -51,15 +53,15 @@ export default function Update() {
     const updatemovie = {
       image,
       title,
-      genree,
+      genre,
       duration,
-      releaseYearr,
-      ratinge,
+      releaseYear,
+      rating,
       summary,
-      email: "user@gmail.com",
+      email:user.email,displayName:user.displayName,
     };
 
-    console.log("Movie added:", updatemovie);
+    // console.log("Movie added:", updatemovie);
 
     Swal.fire("Success", "Movie added successfully!", "success");
 
@@ -77,7 +79,7 @@ export default function Update() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
+        // console.log(data)
         if (data.modifiedCount > 0) {
           Swal.fire({
             position: "top-end",

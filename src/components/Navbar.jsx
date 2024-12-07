@@ -132,8 +132,8 @@ export default function Navbar() {
           </div>
         </div>
         <div className="navbar-center  lg:flex">
-          <ul className="menu menu-horizontal px-1  invisible md:visible">
-            <div className="flex gap-5 font-medium text-lg invisible md:visible lg:visible ">
+          <ul className="menu menu-horizontal px-1  invisible ">
+            <div className="flex gap-5 font-medium text-lg invisible lg:visible ">
               <NavLink to={`/`} className="mt-2">
                 Home
               </NavLink>

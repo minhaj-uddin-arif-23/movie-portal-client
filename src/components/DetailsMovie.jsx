@@ -1,15 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { Helmet } from "react-helmet";
+import toast from "react-hot-toast";
 
 export default function DetailsMovie({ movies, setMovie }) {
-  const {user} = useContext(AuthContext)
+  const { user } = useContext(AuthContext);
   const { _id, image, title, genre, duration, releaseYear, rating, summary } =
     movies || {};
   const navigate = useNavigate();
-  const allMovie ={
+  const allMovie = {
     image,
     title,
     genre,
@@ -17,8 +18,14 @@ export default function DetailsMovie({ movies, setMovie }) {
     releaseYear,
     rating,
     summary,
-    email:user.email
-  }
+    email: user.email,
+  };
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
   //add to favourite
   const addToFavourite = (_id) => {
     fetch(`http://localhost:5500/favourite`, {
@@ -27,12 +34,14 @@ export default function DetailsMovie({ movies, setMovie }) {
         "content-type": "application/json",
       },
       body: JSON.stringify(allMovie),
-    }) .then((res) => res.json())
-    .then((data) =>{
-      console.log(data)
     })
+      .then((res) => res.json())
+      .then((data) => {
+        toast.success("Added To Favourite!");
+        console.log(data);
+      });
   };
-  console.log(allMovie)
+  console.log(allMovie);
 
   // delete the movie
   const deleteMovie = (_id) => {
@@ -71,9 +80,9 @@ export default function DetailsMovie({ movies, setMovie }) {
   return (
     <>
       <div className="my-4 flex justify-center">
-      <Helmet>
-        <title>Movie Portal | Details movie</title>
-      </Helmet>
+        <Helmet>
+          <title>Movie Portal | Details movie</title>
+        </Helmet>
         <div className="w-full max-w-sm sm:max-w-md md:max-w-5xl border-2 border-gray-200  shadow-lg rounded-lg overflow-hidden  ">
           <figure>
             <img

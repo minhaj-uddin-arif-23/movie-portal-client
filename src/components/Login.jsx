@@ -8,6 +8,8 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 // import login from "../assets/login.png";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { Helmet } from "react-helmet";
+import toast from "react-hot-toast";
+import auth from "../fireBase/firebase.config";
 export default function Login() {
   const navigate = useNavigate();
 
@@ -28,6 +30,7 @@ export default function Login() {
       .then((result) => {
         const user = result.user;
         setUser(user);
+
         navigate(location?.state ? location.state : "/");
 
         setSuccess(true);
@@ -46,28 +49,13 @@ export default function Login() {
       .then((result) => {
         const user = result.user;
         setUser(user);
-       
-         
-        navigate(from, { replace: true });
+        navigate(location?.state ? location.state : "/");
       })
       .catch((err) => {
         setUser(err.message);
-      });                            
+      });
   };  
-  // const handleGitHuLogin = () => {
-  //   signInWithPopup(auth, provider2)
-  //     .then((result) => {
-  //       const user = result.user;
-
-  //       setUser(user);
-  //       navigate(from, { replace: true });
-  //     })
-  //     .catch((err) => {
-  //       setUser(err.message);
-  //     });
-  // };
-
-  // forget password
+  
   const emailRef = useRef();
 
   return (
@@ -77,10 +65,10 @@ export default function Login() {
         <title>Movie Portal | Login</title>
       </Helmet>
     <div className="">
-      {/* <img src={login} className="w-[450px]" alt="" /> */}
+    
     </div>
     <div>
-      {/* <Helmet> <title>Eco Adventure Login</title> </Helmet> */}
+   
       <div>
         <div className="bg-white/20 card border-2 border-gray-400 font-medium w-full max-w-sm shrink-0 shadow-2xl md:ml-[390px] my-10 text-white dark:bg-[#444850] light-mode:bg-white">
           <form onSubmit={handleLogin} className="card-body">
@@ -146,7 +134,7 @@ export default function Login() {
             <p className="text-gray-400 mt-2">Or sign in with</p>
             <div className="flex">
               <button
-                onClick={handleGoogleLogin}
+                onClick={handleGoogleLogin} type="button"
                 className="btn rounded-full w-14 text-4xl bg-white hover:bg-white hover:text-white ml-32 dark:bg-[#444850] dark:hover:bg-[#444850]"
               >
                 <FcGoogle />

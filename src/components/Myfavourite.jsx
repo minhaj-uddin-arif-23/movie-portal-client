@@ -17,7 +17,7 @@ export default function Myfavourite({ email }) {
   return (
     <div>
       <div className="my-4">
-         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-col-3"> 
+         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-col-3 gap-5"> 
         
       
         {
@@ -25,7 +25,7 @@ export default function Myfavourite({ email }) {
             <p>No data found</p>
           ):(
             favourite?.map((item) => (
-              <FavouriteCardss key={item?._id} send={item} />
+              <FavouriteCardss key={item?._id} send={item} favourite={favourite} setFavourite={setFavourite} />
             ))
           )
         }

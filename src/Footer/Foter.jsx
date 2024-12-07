@@ -8,7 +8,7 @@ export default function Foter() {
       <footer className="footer p-20">
  
   <nav>
-  <aside>
+  <aside className=''>
     <svg
       width="50"
       height="50"
@@ -19,7 +19,7 @@ export default function Foter() {
       className="fill-current">
       <RiMovie2Line />
     </svg>
-    <p className='text-lg font-medium'>
+    <p className='text-lg font-medium '>
      Movie Portal Industries Ltd.
       <br />
       Providing reliable tech since 2024
