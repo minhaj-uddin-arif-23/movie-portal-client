@@ -1,4 +1,5 @@
 import React from 'react'
+import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
@@ -47,6 +48,9 @@ export default function FavouriteCardss({ send}) {
   return (
       // {/* <h1 className="text-4xl font-semibold  ">You Can see All Movies</h1> */}
      <div className="border-2 border-gray-100 card card-compact   w-72 sm:w-80 md:w-80 shadow-2xl rounded-lg overflow-hidden transform hover:scale-105 transition duration-300 ease-in-out">
+       <Helmet>
+        <title>Movie Portal | Favourite Card</title>
+      </Helmet>
        <figure>
          <img
            src={image} className="w-80 h-[280px]   object-cover transform hover:scale-110 transition-all duration-300 "

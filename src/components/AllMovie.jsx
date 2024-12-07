@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import MovieCard from "./MovieCard";
+import { Helmet } from "react-helmet";
 
 export default function AllMovie() {
   const getData = useLoaderData();
@@ -30,6 +31,9 @@ export default function AllMovie() {
           id=""
         />
       </div>
+      <Helmet>
+        <title>Movie Portal | All movie</title>
+      </Helmet>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
         {movieData?.map((data) => (
           <MovieCard key={data._id} sendCard={data} />

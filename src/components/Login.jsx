@@ -7,6 +7,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 // import login from "../assets/login.png";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import { Helmet } from "react-helmet";
 export default function Login() {
   const navigate = useNavigate();
 
@@ -72,6 +73,9 @@ export default function Login() {
   return (
     <>
   <div className="flex flex-col md:flex-row lg:flex-row dark:bg-[#22262f] light-mode:bg-white">
+  <Helmet>
+        <title>Movie Portal | Login</title>
+      </Helmet>
     <div className="">
       {/* <img src={login} className="w-[450px]" alt="" /> */}
     </div>

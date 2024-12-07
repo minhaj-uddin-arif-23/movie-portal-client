@@ -1,6 +1,7 @@
 import React from "react";
 import Choose from "../extraHome_section/Choose";
 import Hook from "../extraHome_section/Hook";
+import { Helmet } from "react-helmet";
 
 const Blog = () => {
   const blogs = [
@@ -28,6 +29,9 @@ const Blog = () => {
       <h2 className="text-3xl font-bold  text-center mb-8">
         Movie Blogs
       </h2>
+      <Helmet>
+        <title>Movie Portal | Blog</title>
+      </Helmet>
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {blogs.map((blog) => (
           <div

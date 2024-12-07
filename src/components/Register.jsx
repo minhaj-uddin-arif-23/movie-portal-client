@@ -14,6 +14,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 // import { Helmet } from "react-helmet-async";
 import auth from "../fireBase/firebase.config";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import { Helmet } from "react-helmet";
 
 
 export default function Register() {
@@ -116,6 +117,9 @@ export default function Register() {
 
   return (
     <div className="md:flex-row lg:flex-row justify-center items-center mt-10">
+       <Helmet>
+        <title>Register</title>
+      </Helmet>
     <div className="w-full max-w-lg">
       <div className="border-2 border-gray-400 card font-medium w-full shadow-2xl lg:my-10 animate__animated animate__slideInRight mb-6 dark:bg-[#22262f] dark:text-white light-mode:bg-white light-mode:text-black">
         <form onSubmit={handleRegister} className="card-body">

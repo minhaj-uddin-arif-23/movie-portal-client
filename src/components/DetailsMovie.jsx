@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import { Helmet } from "react-helmet";
 
 export default function DetailsMovie({ movies, setMovie }) {
   const {user} = useContext(AuthContext)
@@ -70,6 +71,9 @@ export default function DetailsMovie({ movies, setMovie }) {
   return (
     <>
       <div className="my-4 flex justify-center">
+      <Helmet>
+        <title>Movie Portal | Details movie</title>
+      </Helmet>
         <div className="w-full max-w-sm sm:max-w-md md:max-w-5xl border-2 border-gray-200  shadow-lg rounded-lg overflow-hidden  ">
           <figure>
             <img

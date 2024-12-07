@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Rating } from "react-simple-star-rating";
 import Swal from "sweetalert2";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import { Helmet } from "react-helmet";
 
 export default function AddMovie() {
   const {user} = useContext(AuthContext)
@@ -82,6 +83,9 @@ export default function AddMovie() {
 
   return (
     <div className="min-h-screen flex justify-center items-center p-4">
+       <Helmet>
+        <title>Movie Portal | Add Movie</title>
+      </Helmet>
     <div className="bg-purple card rounded-lg w-full max-w-2xl p-6 shadow-lg border-2 border-red-600">
       <h1 className="text-2xl font-semibold text-center mb-6">Add Movie</h1>
       <form onSubmit={addMovie} className="space-y-4 w-full">
